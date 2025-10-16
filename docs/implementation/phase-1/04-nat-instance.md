@@ -55,3 +55,56 @@ iptables -A FORWARD -d ${PRIVATE_CIDR} -m state --state ESTABLISHED,RELATED -j A
 service iptables save || true
 systemctl enable iptables || true
 systemctl restart iptables || true
+```
+
+## Disable Source/Destination Check
+
+After the instance launches:
+EC2 → Instances → Actions → Networking → Change source/dest. check → Disable.
+
+## Update Private Route Table
+
+Edit rtb-private-a and add:
+Destination: 0.0.0.0/0 → Target: <NAT Instance ID>
+
+
+## Validation
+
+1. SSH to the Bastion, then to the private EC2.
+
+
+2. From the private EC2, run:
+
+curl -I https://aws.amazon.com
+sudo yum -y update || true   # or apt-get update on Debian/Ubuntu
+
+You should see successful responses — outbound traffic is going through the NAT instance.
+
+
+3. Ensure the private EC2 has no public IP and is not reachable from the internet.
+
+
+4. (Optional) Allocate & attach an Elastic IP to the NAT instance to keep its public address stable.
+
+
+
+## Cost & Trade-offs
+
+Pros: minimal cost for a functional lab, full control of iptables, no hourly NAT GW charge.
+
+Cons: not highly available by default; you manage patches and scaling yourself.
+
+Phase 2 plan: evaluate NAT Gateway for managed HA and higher throughput.
+
+
+## Troubleshooting
+
+If outbound still fails, check:
+
+Source/Dest Check is disabled on the NAT instance.
+
+Private RT default route points to the NAT instance ID (not IGW).
+
+Security groups/NACLs don’t block ephemeral traffic.
+
+The NAT instance has a public IP and can reach the internet.
