@@ -42,7 +42,7 @@ Ensure OpenSSH Agent is running; add the key with:
 
 ssh-add path\keyname
 
-These tips are explicitly referenced (pages 24–25).
+These tips are explicitly referenced.
 
 
 ## Validation Checklist
@@ -58,8 +58,4 @@ These tips are explicitly referenced (pages 24–25).
 
 ## Next Steps
 
-Step 04: Create a NAT Instance in the public subnet and route private subnets' 0.0.0.0/0 to it (and disable S/D check per pages 5–6).
-
-Step 05: Configure S3 Gateway Endpoint (free) to avoid NAT for S3 access (pages 54–55).
-
-Step 06: Enable VPC Flow Logs for visibility (page 64).
+Step 04: Create a NAT Instance in the public subnet and route private subnets' 0.0.0.0/0 to it (and disable S/D check).
