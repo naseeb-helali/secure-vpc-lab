@@ -47,6 +47,14 @@
 | Private RT | 0.0.0.0/0 | NAT Instance |
 | Private RT | pl-aws-s3 | Gateway Endpoint |
 
+
+### Subnet Plan
+| Name      | CIDR         | AZ   | Purpose                |
+|-----------|--------------|------|------------------------|
+| public-a  | 10.0.1.0/24  | AZ-A | Bastion, NAT instance  |
+| private-a | 10.0.2.0/24  | AZ-A | Application EC2        |
+
+
 ### Security Highlights
 - Bastion accessible only from fixed IP via SSH(22).  
 - Private EC2 accessible only from Bastion.  
