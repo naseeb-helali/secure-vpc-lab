@@ -32,3 +32,34 @@ Provision a hardened entry point (SSH jump host) in the public subnet to adminis
 5. Validate SSH:
    ```bash
    ssh -i ~/.ssh/<key>.pem ec2-user@<BASTION_PUBLIC_IP>
+
+
+## Windows
+
+Run PowerShell as Administrator.
+
+Ensure OpenSSH Agent is running; add the key with:
+
+ssh-add path\keyname
+
+These tips are explicitly referenced (pages 24–25).
+
+
+## Validation Checklist
+
+[ ] Bastion EC2 is reachable via SSH from the allowed IP only.
+
+[ ] Security Group does not allow 0.0.0.0/0 on port 22.
+
+[ ] (Optional) Elastic IP is attached to keep the address stable.
+
+[ ] No private subnet resources are exposed to the internet.
+
+
+## Next Steps
+
+Step 04: Create a NAT Instance in the public subnet and route private subnets' 0.0.0.0/0 to it (and disable S/D check per pages 5–6).
+
+Step 05: Configure S3 Gateway Endpoint (free) to avoid NAT for S3 access (pages 54–55).
+
+Step 06: Enable VPC Flow Logs for visibility (page 64).
