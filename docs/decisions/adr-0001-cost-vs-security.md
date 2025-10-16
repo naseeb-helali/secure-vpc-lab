@@ -1,20 +1,24 @@
-(2) docs/decisions/adr-0001-cost-vs-security.md
+---
 
-# ADR-0001: NAT Instance vs NAT Gateway (Phase 1)
+## 📗 ملف GitHub: `docs/decisions/adr-0002-routing-and-endpoints.md`
+
+```markdown
+# ADR-0002: Private Routing via NAT Instance + S3 Gateway Endpoint
 
 ## Context
-- NAT Gateway تكلفة بالساعة وبالجيجابايت (صفحة 13)16.
-- NAT Gateway لا يدعم Security Groups (صفحة 9)17 ويوصى بواحد لكل AZ للـHA (صفحة 10)18.
-- NAT Instance: يجب أن يكون في Public Subnet، Route من Private إليه، تعطيل Source/Dest Check (صفحات 5–6)19.
+Private subnets need secure outbound connectivity for updates.  
+A NAT Instance in the public subnet provides egress (pages 5–6)3.  
+S3 access from private subnets can use a free Gateway Endpoint (pages 54–55)4.
 
 ## Decision
-اعتماد **NAT Instance** في المختبر (Phase 1) لتقليل التكلفة مع ضبط SG/NACL.
+- Route `0.0.0.0/0` from Private-A to NAT Instance-A.  
+- Enable **S3 Gateway Endpoint** and associate it with private route tables.  
 
 ## Consequences
-- ✅ تكلفة شبه صفرية للمختبر.
-- ✅ مرونة عالية للتجارب.
-- ⚠️ ليس HA مثل NAT Gateway.
-- 🔁 في Phase 2/Production: الترقية إلى **NAT Gateway**.
+✅ Reduced NAT traffic cost.  
+✅ Enhanced security (no internet exposure).  
+⚠️ Single-point NAT Instance (acceptable for Phase 1 Lab).  
 
 ## Status
-Accepted (Phase 1). To be revisited in Phase 2.
+Accepted for Phase 1.  
+To be revisited with NAT Gateway in Phase 2.
