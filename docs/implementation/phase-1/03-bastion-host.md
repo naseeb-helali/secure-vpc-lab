@@ -3,7 +3,7 @@
 ## Objective
 Provision a hardened entry point (SSH jump host) in the public subnet to administratively access private resources without exposing them to the internet.
 
-## Why this matters (from study material)
+## Why this matters? 
 - Bastion hosts are designed to withstand attacks and must be deployed in **public subnets**.
 - Prefer **Elastic IP** and **restrict source IPs** in Security Groups/NACLs to the minimum required.
 - High availability setups using Auto Scaling are possible; **private subnets still require NAT** for outbound internet access.
