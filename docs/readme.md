@@ -6,17 +6,17 @@
 
 ## 🧭 النطاق (Phase 1)
 - VPC + Subnets عبر أكثر من AZ.
-- Bastion Host في Public Subnet مع تقييد المصدر (صفحة 20)7.
-- NAT Instance بديلًا عن NAT Gateway لتقليل التكلفة (صفحات 5–6، 13)8.
-- S3 Gateway Endpoint للوصول من الشبكات الخاصة دون إنترنت (صفحات 51، 54–55)9.
-- VPC Flow Logs إلى CloudWatch أو S3 (صفحة 64)10.
+- Bastion Host في Public Subnet مع تقييد المصدر.
+- NAT Instance بديلًا عن NAT Gateway لتقليل التكلفة.
+- S3 Gateway Endpoint للوصول من الشبكات الخاصة دون إنترنت.
+- VPC Flow Logs إلى CloudWatch أو S3.
 
 ## 🧩 لماذا هذه الاختيارات؟
-- **NAT Gateway** يفرض تكلفة بالساعة وبالجيجابايت (صفحة 13)11، لذا نستخدم **NAT Instance** للمختبر.
-  - NAT Instance: في Public Subnet + Route افتراضي من Private إليه + تعطيل Source/Dest Check (صفحات 5–6)12.
-- **Gateway Endpoint (S3)** مجاني ويجنب المرور عبر NAT (صفحات 54–55)13.
-- **Bastion Host** للإدارة الآمنة وتقييد المصدر (صفحة 20)14.
-- **Flow Logs** لالتقاط Source/Dest IP/Port وحالة ACCEPT/REJECT (صفحة 64)15.
+- **NAT Gateway** يفرض تكلفة بالساعة وبالجيجابايت، لذا نستخدم **NAT Instance** للمختبر.
+  - NAT Instance: في Public Subnet + Route افتراضي من Private إليه + تعطيل Source/Dest Check.
+- **Gateway Endpoint (S3)** مجاني ويجنب المرور عبر NAT.
+- **Bastion Host** للإدارة الآمنة وتقييد المصدر.
+- **Flow Logs** لالتقاط Source/Dest IP/Port وحالة ACCEPT/REJECT.
 
 ## 🧱 المعمارية (TL;DR)
 - Public: Bastion + NAT Instance
@@ -53,5 +53,5 @@
 - NAT Instance restricted (outbound only).  
 
 ### Trade-offs
-- **NAT Instance** chosen for cost efficiency (page 13)5.  
-- **Flow Logs** enabled with short retention for cost control (page 64)6.
+- **NAT Instance** chosen for cost efficiency.  
+- **Flow Logs** enabled with short retention for cost control.
