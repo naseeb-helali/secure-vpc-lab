@@ -1,4 +1,4 @@
-# Phase 1: NAT Instance (Public Subnet) + Private Egress Routing
+# NAT Instance (Public Subnet) + Private Egress Routing
 
 ## Objective
 Provide secure outbound internet access for private subnets using a **NAT Instance** (lab-friendly and low-cost), without exposing private instances to inbound internet.
