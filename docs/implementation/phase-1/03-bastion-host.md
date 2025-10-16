@@ -1,4 +1,4 @@
-# Phase 1: Bastion Host (Public Subnet)
+# Bastion Host (Public Subnet)
 
 ## Objective
 Provision a hardened entry point (SSH jump host) in the public subnet to administratively access private resources without exposing them to the internet.
