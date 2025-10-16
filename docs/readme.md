@@ -55,3 +55,12 @@
 ### Trade-offs
 - **NAT Instance** chosen for cost efficiency.  
 - **Flow Logs** enabled with short retention for cost control.
+
+### ✅ Sanity Checklist
+- [ ] VPC created (10.0.0.0/16)
+- [ ] Public Subnet (10.0.1.0/24) linked to IGW
+- [ ] Private Subnet (10.0.2.0/24) linked to NAT Instance
+- [ ] S3 Gateway Endpoint associated with private RT
+- [ ] Bastion SG: SSH only from fixed IP
+- [ ] App SG: SSH only from Bastion
+- [ ] Flow Logs enabled (CloudWatch or S3)
