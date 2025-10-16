@@ -27,11 +27,11 @@ Stand up the base network: one VPC, one public subnet for internet-facing utilit
 5. **Tagging (optional)**  
    - `Project=secure-vpc-lab`, `Env=lab`.
 
-## Rationale (evidence from study material)
-- **NAT instance must reside in a public subnet; private subnets route their default traffic to it; disable S/D check** (pages 5–6)4.  
-- **S3 Gateway Endpoint** is free and avoids NAT for S3 access (pages 54–55)5.  
-- **Bastion Host** belongs in a public subnet with restricted source IPs (page 20)6.  
-- **VPC Flow Logs** capture source/destination IP/Port and accept/reject status (page 64)7.
+## Rationale
+- **NAT instance must reside in a public subnet; private subnets route their default traffic to it; disable S/D check**.  
+- **S3 Gateway Endpoint** is free and avoids NAT for S3 access.  
+- **Bastion Host** belongs in a public subnet with restricted source IPs.  
+- **VPC Flow Logs** capture source/destination IP/Port and accept/reject status.
 
 ## Validation Checklist
 - [ ] VPC exists with CIDR `10.0.0.0/16`.  
