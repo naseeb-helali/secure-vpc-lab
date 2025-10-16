@@ -6,7 +6,7 @@ Allow private subnet instances to access Amazon S3 **without using the NAT insta
 ## Why this matters (from study material)
 - **Gateway Endpoints** connect private subnets directly to AWS services over the internal AWS network.  
 - For **S3**, the endpoint type is **Gateway** (not Interface).  
-- **Free of charge** — avoids NAT data processing costs (pages 51, 54–55)1.  
+- **Free of charge** — avoids NAT data processing costs.  
 - Ensures data never traverses the public internet.
 
 ## Console Instructions
