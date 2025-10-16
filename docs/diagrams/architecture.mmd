@@ -1,1 +1,25 @@
-docs/diagrams/architecture.mmd  (Mermaid)
+flowchart LR
+  Internet((Internet))
+  subgraph VPC [VPC]
+    subgraph Public-A
+      BastionA[Bastion EC2 (AZ-A)]
+      NATa[NAT Instance (AZ-A)]
+    end
+    subgraph Private-A
+      AppA[Private EC2 (AZ-A)]
+    end
+    subgraph Public-B
+      BastionB[Bastion EC2 (AZ-B)]
+      NATb[NAT Instance (AZ-B)]
+    end
+    subgraph Private-B
+      AppB[Private EC2 (AZ-B)]
+    end
+    GWEP[(S3 Gateway Endpoint)]
+  end
+  Internet --> BastionA
+  Internet --> BastionB
+  Private-A --> NATa --> Internet
+  Private-B --> NATb --> Internet
+  Private-A --> GWEP
+  Private-B --> GWEP
