@@ -1,4 +1,4 @@
-# Phase 1: Network Setup (VPC, Subnets, Route Tables)
+# Network Setup (VPC, Subnets, Route Tables)
 
 ## Objective
 Stand up the base network: one VPC, one public subnet for internet-facing utilities (Bastion/NAT instance), and one private subnet for workloads. Prepare route tables for correct isolation and future egress via a NAT instance.
