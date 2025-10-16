@@ -1,9 +1,3 @@
-(1) docs/readme.md
-
-> الصق التالي كما هو، ثم خصّصه لاحقًا:
-
-
-
 # Secure, Cost-Optimized AWS VPC Lab (Phase 1)
 
 ## 🎯 الهدف
@@ -37,3 +31,27 @@
 
 ## 🧹 Teardown
 راجع `runbooks/teardown.md` لتفكيك الموارد وتقليل التكلفة.
+
+## 🧱 Architecture Overview
+
+### Network Structure
+- **Public Subnet (10.0.1.0/24)** — Hosts Bastion & NAT Instance.  
+- **Private Subnet (10.0.2.0/24)** — Hosts Application EC2.  
+- **S3 Gateway Endpoint** — Internal access to S3 (free).  
+- **VPC Flow Logs** — Sent to CloudWatch or S3 for visibility.
+
+### Routing Logic
+| Route Table | Destination | Target |
+|--------------|--------------|--------|
+| Public RT | 0.0.0.0/0 | Internet Gateway |
+| Private RT | 0.0.0.0/0 | NAT Instance |
+| Private RT | pl-aws-s3 | Gateway Endpoint |
+
+### Security Highlights
+- Bastion accessible only from fixed IP via SSH(22).  
+- Private EC2 accessible only from Bastion.  
+- NAT Instance restricted (outbound only).  
+
+### Trade-offs
+- **NAT Instance** chosen for cost efficiency (page 13)5.  
+- **Flow Logs** enabled with short retention for cost control (page 64)6.
