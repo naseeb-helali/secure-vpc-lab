@@ -1,4 +1,4 @@
-# Phase 1: S3 Gateway Endpoint (Private Access)
+# S3 Gateway Endpoint (Private Access)
 
 ## Objective
 Allow private subnet instances to access Amazon S3 **without using the NAT instance or internet** — improving security and reducing cost to zero for S3 traffic.
