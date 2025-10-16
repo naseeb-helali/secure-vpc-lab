@@ -1,2 +1,15 @@
-graph TD
-  A[Start] --> B[Works!]
+flowchart LR
+  Internet((Internet))
+  subgraph VPC [VPC 10.0.0.0/16]
+    subgraph Public-A[Public-A 10.0.1.0/24]
+      BastionA[Bastion EC2]
+      NATa[NAT Instance (S/D Check Disabled)]
+    end
+    subgraph Private-A[Private-A 10.0.2.0/24]
+      AppA[App EC2]
+    end
+    GWEP[(S3 Gateway Endpoint)]
+  end
+  Internet --> BastionA
+  Private-A --> NATa --> Internet
+  Private-A --> GWEP
