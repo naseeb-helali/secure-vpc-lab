@@ -2,8 +2,8 @@
 
 ## What you'll see
 - Source IP/Port, Destination IP/Port, Status (ACCEPT/REJECT).
-- نشر إلى CloudWatch Logs أو S3.
+- Publish to CloudWatch Logs or S3.
 
 ## Quick checks
-- فلترة REJECT لمعرفة أسباب الفشل (SG/NACL/Route).
-- استهداف ENI/Private IP الخاص بالـEC2 أثناء البحث.
+- Filter REJECT entries to identify failure causes (SG/NACL/Route).
+- Target the ENI/Private IP of the EC2 instance during inspection.
