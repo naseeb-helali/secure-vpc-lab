@@ -1,7 +1,7 @@
 # Runbook — Access via Bastion
 
 ## Principles
-- Bastion في Public Subnet مع Elastic IP مفضل وتقييد المصدر في SG/NACL.
+- Bastion in the Public Subnet with a preferred Elastic IP and source restriction in SG/NACL.
 
 ## SSH (Linux/Mac)
 ssh -i ~/.ssh/<key>.pem ec2-user@<BASTION_PUBLIC_IP>
@@ -10,4 +10,4 @@ ssh -i ~/.ssh/<key>.pem ec2-user@<BASTION_PUBLIC_IP>
 ssh -i ~/.ssh/<key>.pem ec2-user@<PRIVATE_EC2_IP>
 
 ## Windows Tip
-تأكد من تشغيل OpenSSH Agent وإضافة المفتاح.
+- Make sure the OpenSSH Agent is running and the key is added.
