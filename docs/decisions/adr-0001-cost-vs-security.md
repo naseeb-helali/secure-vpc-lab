@@ -1,7 +1,3 @@
----
-
-## 📗 ملف GitHub: `docs/decisions/adr-0002-routing-and-endpoints.md`
-
 ```markdown
 # ADR-0002: Private Routing via NAT Instance + S3 Gateway Endpoint
 
