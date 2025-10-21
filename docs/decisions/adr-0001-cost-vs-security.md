@@ -3,8 +3,8 @@
 
 ## Context
 Private subnets need secure outbound connectivity for updates.  
-A NAT Instance in the public subnet provides egress (pages 5–6)3.  
-S3 access from private subnets can use a free Gateway Endpoint (pages 54–55)4.
+A NAT Instance in the public subnet provides egress.  
+S3 access from private subnets can use a free Gateway Endpoint.
 
 ## Decision
 - Route `0.0.0.0/0` from Private-A to NAT Instance-A.  
