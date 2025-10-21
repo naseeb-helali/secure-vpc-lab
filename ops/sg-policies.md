@@ -1,5 +1,3 @@
-ops/sg-policies.md
-
 # SG Policies (Summary)
 
 - Bastion SG: اسمح TCP/22 فقط من عنوان IP ثابت للشركة/لديك.
