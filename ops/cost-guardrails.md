@@ -1,5 +1,3 @@
-ops/cost-guardrails.md
-
 # Cost Guardrails
 
 - استخدم S3 Gateway Endpoint للوصول من Private دون المرور بـNAT.
