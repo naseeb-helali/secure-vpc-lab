@@ -1,10 +1,8 @@
-runbooks/observe-flowlogs.md
-
 # Runbook — Observe VPC Flow Logs
 
 ## What you'll see
-- Source IP/Port, Destination IP/Port, Status (ACCEPT/REJECT) (صفحة 64)22.
-- نشر إلى CloudWatch Logs أو S3 (صفحة 64)23.
+- Source IP/Port, Destination IP/Port, Status (ACCEPT/REJECT).
+- نشر إلى CloudWatch Logs أو S3.
 
 ## Quick checks
 - فلترة REJECT لمعرفة أسباب الفشل (SG/NACL/Route).
