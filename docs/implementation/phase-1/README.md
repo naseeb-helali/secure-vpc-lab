@@ -33,7 +33,7 @@ flowchart LR
   subgraph VPC [VPC 10.0.0.0/16]
     subgraph Public-A[Public 10.0.1.0/24]
       Bastion[Bastion Host]
-      NAT[NAT Instance (S/D Check Disabled)]
+      NAT["NAT Instance (S/D Check Disabled)"]
     end
     subgraph Private-A[Private 10.0.2.0/24]
       AppEC2[App EC2]
